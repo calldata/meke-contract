@@ -17,6 +17,7 @@ import "hardhat-deploy-ethers";
 
 import "hardhat-gas-reporter";
 import "@nomiclabs/hardhat-etherscan";
+import "@nomiclabs/hardhat-web3";
 
 const chainIds = {
   ganache: 1337,
