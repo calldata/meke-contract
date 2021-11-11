@@ -107,8 +107,8 @@ describe('order', () => {
         assert.equal(await testOrder.isMakerOnly(orderParam), false);
         assert.equal(await testOrder.isInversed(orderParam), false);
         assert.equal(await testOrder.side(orderParam), 1);
-        assert.equal(await testOrder.makerFeeRate(orderParam), toWad(-0.0000015));
-        assert.equal(await testOrder.takerFeeRate(orderParam), toWad(0.000002));
+        assert.equal(await testOrder.makerFeeRate(orderParam), toWad(-0.000015));
+        assert.equal(await testOrder.takerFeeRate(orderParam), toWad(0.00002));
     });
 
     it("test order 3", async () => {
@@ -150,8 +150,8 @@ describe('order', () => {
         assert.equal(await testOrder.isMakerOnly(orderParam), false);
         assert.equal(await testOrder.isInversed(orderParam), true);
         assert.equal(await testOrder.side(orderParam), 2);
-        assert.equal(await testOrder.makerFeeRate(orderParam), toWad(-0.0000015));
-        assert.equal(await testOrder.takerFeeRate(orderParam), toWad(0.000002));
+        assert.equal(await testOrder.makerFeeRate(orderParam), toWad(-0.000015));
+        assert.equal(await testOrder.takerFeeRate(orderParam), toWad(0.00002));
     });
 
     it("test order 3", async () => {
