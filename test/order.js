@@ -171,6 +171,7 @@ module.exports = {
     buildOrder,
     getDomainSeparator,
     EIP712_DOMAIN_TYPEHASH,
-    getEIP712MessageHash
+    getEIP712MessageHash,
+    getWeb3
 
 };

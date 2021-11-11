@@ -1,5 +1,6 @@
 const BigNumber = require('bignumber.js');
 const { toWad, fromWad, infinity } = require('./constants');
+const { getWeb3 } = require("./order");
 
 import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
 import { assert } from "chai";
@@ -103,9 +104,20 @@ describe('TestCollateral', () => {
         });
     });
 
-    // describe("deposit / withdraw - ether", async () => {
+    // describe("deposit / withdraw - ether", () => {
+    //     let web3: any
+    //     let u1: any;
+    //     let u2;
+    //     let u3;
+
     //     beforeEach(async () => {
-    //         vault = await TestCollateral.new(globalConfig.address, "0x0000000000000000000000000000000000000000", 18);
+    //         u1 = accounts[4];
+    //         u2 = accounts[5];
+    //         u3 = accounts[6];
+    //         web3 = getWeb3();
+    //         let TestCollateral = await ethers.getContractFactory("TestCollateral");
+    //         vault = await TestCollateral.deploy(globalConfig.address, "0x0000000000000000000000000000000000000000", 18)
+
     //     });
 
     //     it('isTokenizedCollateral', async () => {
@@ -116,8 +128,12 @@ describe('TestCollateral', () => {
     //         let tx, gas;
     //         let b0 = await web3.eth.getBalance(u1);
 
-    //         tx = await vault.depositPublic(toWad(0.01), { from: u1, value: toWad(0.01), gasPrice: 20 * 10 ** 9 });
-    //         assert.equal(await cashBalanceOf(u1), toWad(0.01));
+    //         let m = await vault.getMarginAccount(u1);
+    //         tx = await vault.depositPublic(toWad(0.01), {from: u1, value: toWad(0.01)});
+    //         let bal = await cashBalanceOf(u1);
+
+    //         assert.equal(bal.toString(), toWad(0.01));
+
     //         gas = new BigNumber(20 * 10 ** 9).times(new BigNumber(tx.receipt.gasUsed));
 
     //         tx = await vault.depositPublic(toWad(0.01), { from: u1, value: toWad(0.01), gasPrice: 20 * 10 ** 9 });
@@ -253,7 +269,7 @@ describe('TestCollateral', () => {
     // });
 
     // describe("decimals", async () => {
-    //     const toDecimals = (x, decimals) => {
+    //     const toDecimals = (x: number, decimals: number) => {
     //         let n = new BigNumber(x).times(new BigNumber(10 ** decimals));
     //         return n.toFixed();
     //     };
