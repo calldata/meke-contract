@@ -102,5 +102,5 @@ async function deployment(hre: HardhatRuntimeEnvironment): Promise<void> {
   // console.log("initFunding done")
 }
 
-deployment.tags = ["ArbTest"]
+deployment.tags = ["ArbTest", "Arb"]
 export default deployment
